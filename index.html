@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Factura de compra - Erick Chamorro</title>
+        <link rel="stylesheet" type="text/css" href="css/estilos.css">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta name="autor" content="Erick Chamorro - Yohadis Santoya">
+    </head>
+
+    <body>
+      <header><h1><span id="mi">MI</span> TIENDA</h1></header>
+      <div class="container">
+
+        <form class="frmUno">
+          <label>Factura N°: </label><input type="number" id="factura">
+          <label>Fecha: </label><input type="date" id="fecha" min="2017-01-01" value="date">
+          <fieldset>
+            <legend>Datos del Cliente:</legend>
+              <label>Id: </label><input type="number">
+
+
+              <label>Nombres: </label><input type="text" placeholder="Nombres" style="display: inline-block;">
+              <input type="text" placeholder="Apellidos" style="display: inline-block;">
+
+
+              <label>Correo: </label><input type="email" required="@" placeholder="correo@example.com">
+
+
+              <label>Telefono: </label><input type="tel" placeholder="300-123-45-67">
+          </fieldset>
+        </form>
+
+        <form class="frmCarrito">
+          <fieldset>
+            <legend>Datos del producto:</legend>
+              <label for="name">Descripcion:</label>
+            <input type="text" placeholder="Escriba nombre del producto" id="uno" name="name"  onKeyUp="agregar()">
+            
+
+            <label for="somecode">cantidad:</label><input type="number" id="dos" placeholder="Ingrese cantidad de productos"  name="somecode" min="0"  onkeypress="return isNumberKey(event)" onKeyUp="agregar()">
+            
+            
+
+            <label for="somecode">Precio:</label><input type="number" id="tres" placeholder="Ingrese precio" name="somecode" min="0"  onkeypress="return isNumberKey(event)" onKeyUp="agregar()">
+            
+            
+
+            <label for="somecode">Total:</label><input type="text" id="total" placeholder="el total se agregara automaticamente" name="somecode" min="0">
+            
+             
+        <br>
+        <input type="button" id="calcular" value="calcular" onclick="getAllRows()">      
+     <input type="button" id="row_add" value="Agregar Fila" onclick="agregar()" onKeyPress="agregar()" onKeyUp="agregar()">
+     
+        <br>
+     <label for="somecode">Columna: </label> <input type="number2" id="t" name="somecode" min="0"  onkeypress="return isNumberKey(event)" onKeyUp="agregar()">
+      <br>
+     
+     <input type="button" id="delete" value="Borrar" onclick="deleteRow()">
+     <input type="button" id="todo" value="Borrar Todo" onClick="borrarTodo()">
+    </form>
+          </fieldset>
+            
+      </div>
+      <div class="contenedorTabla">
+        <table class="imagetable" width="100%" id="myTable">
+            <thead>
+                <tr>
+                    <th>Numero</th>
+                    <th>Descripcion</th>                  
+                    <th>Cantidad</th>
+                    <th>Precio</th>            
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+
+        <!--tabla donde se agrega las filas mediante se hace una compra nueva-->    
+        <tbody id="tbl_bdy"> 
+        </tbody>
+        <!--fin de tabla-->
+        </table>
+      </div>  
+        
+
+    <div id="fb-root"></div>
+    <script src="js/main.js"></script>
+    </body>
+</html>
